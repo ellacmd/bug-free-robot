@@ -139,7 +139,7 @@ function App() {
             <div className='app'>
                 <div className='loading-container'>
                     <div className='loading-spinner'></div>
-                    <h2>Loading 100,000 rows...</h2>
+                    <h2>Loading rows...</h2>
                     <p>Generating realistic sample data</p>
                 </div>
             </div>

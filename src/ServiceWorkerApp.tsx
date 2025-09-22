@@ -288,7 +288,7 @@ function ServiceWorkerApp() {
             <div className='app'>
                 <div className='loading-container'>
                     <div className='loading-spinner'></div>
-                    <h2>Loading 100,000 rows...</h2>
+                    <h2>Loading rows...</h2>
                     <p>Generating data in background service worker</p>
                     <div className='progress-bar'>
                         <div

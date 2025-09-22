@@ -303,6 +303,7 @@ self.addEventListener('message', function (e) {
                                         status: getRandomElement(STATUSES),
                                         department:
                                             getRandomElement(DEPARTMENTS),
+                                        score: item.score || generateScore(),
                                         joinDate:
                                             item.registered.date.split('T')[0],
                                         lastLogin: item.login.uuid,
