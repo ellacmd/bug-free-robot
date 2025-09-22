@@ -20,7 +20,6 @@ import {
     X,
     Mail,
     User,
-    Rocket,
     AlertTriangle,
     Dice5,
     Globe,
