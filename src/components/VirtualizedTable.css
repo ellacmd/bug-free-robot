@@ -23,7 +23,6 @@
 
 .table-body {
   overflow-y: auto;
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -161,7 +160,7 @@
   background: #a8a8a8;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
 
   .table-header-row,
   .table-row {
@@ -180,4 +179,4 @@
     padding: 6px 8px;
     font-size: 13px;
   }
-}
+} */
