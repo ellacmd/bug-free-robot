@@ -1,5 +1,3 @@
-
-
 const ROLES = ['admin', 'user', 'moderator', 'guest'];
 const STATUSES = ['active', 'inactive', 'pending', 'suspended'];
 const DEPARTMENTS = [
@@ -40,11 +38,6 @@ const FIRST_NAMES = [
     'Betty',
     'Donald',
     'Helen',
-    'Steven',
-    'Sandra',
-    'Paul',
-    'Donna',
-    'Andrew',
     'Carol',
     'Joshua',
     'Ruth',
@@ -52,10 +45,8 @@ const FIRST_NAMES = [
     'Sharon',
     'Kevin',
     'Michelle',
-    'Brian',
     'Laura',
     'George',
-    'Sarah',
     'Timothy',
     'Kimberly',
     'Ronald',
@@ -63,13 +54,9 @@ const FIRST_NAMES = [
     'Jason',
     'Dorothy',
     'Edward',
-    'Lisa',
     'Jeffrey',
-    'Nancy',
     'Ryan',
-    'Karen',
     'Jacob',
-    'Betty',
 ];
 
 const LAST_NAMES = [
@@ -143,11 +130,9 @@ const EMAIL_DOMAINS = [
     'business.com',
 ];
 
-
 const START_DATE = new Date('2020-01-01').getTime();
 const END_DATE = new Date().getTime();
 const DATE_RANGE = END_DATE - START_DATE;
-
 
 let seed = 12345;
 function fastRandom() {
@@ -203,7 +188,6 @@ function generateRow(index) {
     };
 }
 
-
 self.addEventListener('message', function (e) {
     const { type, requestId } = e.data;
 
@@ -214,7 +198,6 @@ self.addEventListener('message', function (e) {
                 const data = [];
                 let processed = 0;
 
-             
                 async function sendToClients(message) {
                     const clients = await self.clients.matchAll();
                     clients.forEach((client) => {
@@ -232,7 +215,6 @@ self.addEventListener('message', function (e) {
                     processed = endIndex;
                     const progress = (processed / count) * 100;
 
-                  
                     sendToClients({
                         type: 'PROGRESS',
                         progress,
@@ -242,10 +224,8 @@ self.addEventListener('message', function (e) {
                     });
 
                     if (processed < count) {
-                     
                         setTimeout(generateChunk, 0);
                     } else {
-                   
                         sendToClients({
                             type: 'COMPLETE',
                             data,
@@ -269,7 +249,6 @@ self.addEventListener('message', function (e) {
                     chunkSize = 1000,
                 } = e.data;
 
-              
                 async function sendToClients(message) {
                     const clients = await self.clients.matchAll();
                     clients.forEach((client) => {
@@ -277,7 +256,6 @@ self.addEventListener('message', function (e) {
                     });
                 }
 
-                
                 fetch(`https://randomuser.me/api/?results=${userCount}`, {
                     method,
                     headers: {
@@ -295,13 +273,11 @@ self.addEventListener('message', function (e) {
                         return response.json();
                     })
                     .then((apiData) => {
-                        
                         const data = [];
                         let processed = 0;
-                        const apiDataArray = apiData.results; 
+                        const apiDataArray = apiData.results;
                         const apiDataLength = apiDataArray.length || 0;
 
-                 
                         const totalUsers = Math.max(userCount, apiDataLength);
                         const syntheticUsersNeeded = Math.max(
                             0,
@@ -318,22 +294,20 @@ self.addEventListener('message', function (e) {
                                 let transformedItem;
 
                                 if (i < apiDataLength) {
-                                   
                                     const item = apiDataArray[i];
                                     transformedItem = {
                                         id: item.login.uuid,
                                         name: `${item.name.first} ${item.name.last}`,
                                         email: item.email,
                                         role: getRandomElement(ROLES),
-                                        status: getRandomElement(STATUSES), 
+                                        status: getRandomElement(STATUSES),
                                         department:
                                             getRandomElement(DEPARTMENTS),
                                         joinDate:
                                             item.registered.date.split('T')[0],
-                                        lastLogin: item.login.uuid, 
+                                        lastLogin: item.login.uuid,
                                     };
                                 } else {
-                                   
                                     transformedItem = generateRow(i);
                                 }
 
@@ -383,7 +357,6 @@ self.addEventListener('message', function (e) {
                     chunkSize = 1000,
                 } = e.data;
 
-                
                 async function sendToClients(message) {
                     const clients = await self.clients.matchAll();
                     clients.forEach((client) => {
@@ -492,7 +465,6 @@ self.addEventListener('message', function (e) {
             break;
     }
 });
-
 
 self.addEventListener('install', function (e) {
     self.skipWaiting();

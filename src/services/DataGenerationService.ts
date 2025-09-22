@@ -45,7 +45,12 @@ export class DataGenerationService {
         }
 
         try {
-           
+            const registration = await navigator.serviceWorker.register(
+                '/sw.js',
+                {
+                    scope: '/',
+                }
+            );
 
             const readyRegistration = await navigator.serviceWorker.ready;
 
@@ -120,7 +125,7 @@ export class DataGenerationService {
 
             navigator.serviceWorker.addEventListener('message', messageHandler);
 
-            const { onProgress: _ } = options;
+            const { onProgress: _, ...messageOptions } = options;
             worker.postMessage({
                 type: 'GENERATE_DATA',
                 count,
