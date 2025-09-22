@@ -19,7 +19,7 @@
 
 .table-header-row {
   display: grid;
-  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 113px;
+  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 116px;
   gap: 1px;
   background: #e1e5e9;
   min-height: 50px;
@@ -30,6 +30,7 @@
   overflow-y: auto;
   position: relative;
   height: 600px;
+  min-width: max-content;
 }
 
 .table-row {
@@ -39,6 +40,7 @@
   background: #e1e5e9;
   border-bottom: 1px solid #f1f3f4;
   transition: background-color 0.2s ease;
+  width: 100%;
 }
 
 .table-row:hover {
@@ -170,7 +172,7 @@
 
   .table-header-row,
   .table-row {
-    grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
+    grid-template-columns: 50px 160px 240px 100px 100px 80px 120px 108px;
     min-width: 1000px;
   }
 }
@@ -179,7 +181,7 @@
 
   .table-header-row,
   .table-row {
-    grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
+    grid-template-columns: 50px 160px 240px 100px 100px 80px 120px 108px;
     min-width: 900px;
   }
 
