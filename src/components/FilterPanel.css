@@ -222,21 +222,22 @@
   }
 
   .score-range {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .score-separator {
     margin-top: 0;
     text-align: center;
-    order: 2;
   }
 
   .score-input-group:first-of-type {
-    order: 1;
+    order: unset;
   }
 
   .score-input-group:last-of-type {
-    order: 3;
+    order: unset;
   }
 }
