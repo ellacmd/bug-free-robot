@@ -5,6 +5,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.table-scroll-wrapper {
+  overflow-x: auto;
+}
+
 .table-header {
   background: #f8f9fa;
   border-bottom: 1px solid #e1e5e9;
@@ -15,20 +19,22 @@
 
 .table-header-row {
   display: grid;
-  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
+  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 113px;
   gap: 1px;
   background: #e1e5e9;
   min-height: 50px;
+  min-width: 1000px;
 }
 
 .table-body {
   overflow-y: auto;
   position: relative;
+  height: 600px;
 }
 
 .table-row {
   display: grid;
-  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 100px;
+  grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
   gap: 1px;
   background: #e1e5e9;
   border-bottom: 1px solid #f1f3f4;
@@ -160,11 +166,12 @@
   background: #a8a8a8;
 }
 
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
 
   .table-header-row,
   .table-row {
-    grid-template-columns: 50px 1fr 1.2fr 80px 80px 70px 100px 90px;
+    grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
+    min-width: 1000px;
   }
 }
 
@@ -172,11 +179,12 @@
 
   .table-header-row,
   .table-row {
-    grid-template-columns: 50px 1fr 1fr 70px 70px 60px 80px 80px;
+    grid-template-columns: 50px 1fr 1.5fr 100px 100px 80px 120px 108px;
+    min-width: 900px;
   }
 
   .table-cell {
     padding: 6px 8px;
     font-size: 13px;
   }
-} */
+}
